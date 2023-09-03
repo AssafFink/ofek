@@ -1,12 +1,30 @@
+import Home from "../../HomeArea/Home/Home";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import Menu from "../Menu/Menu";
+import Routing from "../Routing/Routing";
 import "./Layout.css";
 
 function Layout(): JSX.Element {
     return (
         <div className="Layout">
-			<header>1</header>
-            <aside>2</aside>
-            <main>3</main>
-            <footer>4</footer>
+
+			<header>
+                <Header />
+            </header>
+
+            <aside>
+                <Menu />
+            </aside>
+            
+            <main>
+                <Routing />
+            </main>
+            
+            <footer>
+                <Footer />
+            </footer>
+
         </div>
     );
 }
