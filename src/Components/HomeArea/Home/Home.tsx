@@ -1,6 +1,7 @@
 import "./Home.css";
 import produceImageSource from "../../../Assets/Images/products.jpg";
 import beveragesImageSource from "../../../Assets/Images/beverages.png";
+import Search from "../Search/Search";
 
 function Home(): JSX.Element {
 
@@ -26,6 +27,9 @@ function Home(): JSX.Element {
     return (
         <div className="Home">
 
+            <Search />
+            <hr />
+
             {/* Conditional Rendering - First way: */}
             <img src={imageNumber === 1 ? produceImageSource : beveragesImageSource} />
 
@@ -46,6 +50,8 @@ function Home(): JSX.Element {
 
             {/* Conditional Rendering - Fifth way: */}
             {/* <img src={beveragesImageSource} /> */}
+
+
 
         </div>
     );
