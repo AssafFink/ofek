@@ -2,10 +2,13 @@ import { SyntheticEvent, useEffect, useState } from "react";
 import WhoAreWe from "../WhoAreWe/WhoAreWe";
 import "./About.css";
 import { useNavigate } from "react-router-dom";
+import Tune from "../Tune/Tune";
+import useTitle from "../../../Utils/UseTitle";
+import Greeting from "../../SharedArea/Greeting/Greeting";
 
 function About(): JSX.Element {
 
-    // ...
+    useTitle("About");
 
     function showDate(): void {
         const now = new Date();
@@ -72,6 +75,8 @@ function About(): JSX.Element {
     return (
         <div className="About">
 
+            <Greeting hour={new Date().getHours()} />
+
             <WhoAreWe />
 
             <hr />
@@ -89,6 +94,12 @@ function About(): JSX.Element {
             <hr />
 
             <span>{clock}</span>
+            <hr />
+
+            <Tune />
+            <hr />
+
+
 
         </div>
     );

@@ -3,9 +3,12 @@ import ProductModel from "../../../Models/ProductModel";
 import productsService from "../../../Services/ProductsService";
 import ProductCard from "../ProductCard/ProductCard";
 import "./ProductList.css";
+import useTitle from "../../../Utils/UseTitle";
 
 function ProductList(): JSX.Element {
 
+    useTitle("Products");
+    
     const [allProducts, setAllProducts] = useState<ProductModel[]>([]);
 
     useEffect(() => {

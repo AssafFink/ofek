@@ -11,10 +11,16 @@ function ProductDetails(): JSX.Element {
     const [product, setProduct] = useState<ProductModel>();
 
     useEffect(() => {
-        const id = +params.id; // Route params
-        productsService.getOneProducts(id)
-            .then(product => setProduct(product))
-            .catch(err => alert(err.message));
+        (async () => {
+            try {
+                const id = +params.id; // Route params
+                const product = await productsService.getOneProducts(id);
+                setProduct(product);
+            }
+            catch (err: any) {
+                alert(err.message);
+            }
+        })();
     }, []);
 
     return (
@@ -23,7 +29,7 @@ function ProductDetails(): JSX.Element {
             <h3>Price: {product?.price}</h3>
             <h3>Stock: {product?.stock}</h3>
             <img src={product?.imageUrl} />
-            <br />  
+            <br />
             <NavLink to="/products">Back</NavLink>
         </div>
     );

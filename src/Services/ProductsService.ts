@@ -7,7 +7,7 @@ import appConfig from "../Utils/AppConfig";
 class ProductsService {
 
     public async getAllProducts(): Promise<ProductModel[]> {
-        const response = await axios.get<ProductModel[]>(appConfig.productsUrl)        
+        const response = await axios.get<ProductModel[]>(appConfig.productsUrl);
         const products = response.data;
         return products;
     }

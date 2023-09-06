@@ -2,8 +2,12 @@ import "./Home.css";
 import produceImageSource from "../../../Assets/Images/products.jpg";
 import beveragesImageSource from "../../../Assets/Images/beverages.png";
 import Search from "../Search/Search";
+import useTitle from "../../../Utils/UseTitle";
+import Orders from "../../SharedArea/Orders/Orders";
 
 function Home(): JSX.Element {
+
+    useTitle("Home");
 
     const imageNumber = Math.floor(Math.random() * 2) + 1;
 
@@ -51,6 +55,7 @@ function Home(): JSX.Element {
             {/* Conditional Rendering - Fifth way: */}
             {/* <img src={beveragesImageSource} /> */}
 
+            <Orders />
 
 
         </div>

@@ -1,12 +1,27 @@
+import { Suspense, lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import About from "../../AboutArea/About/About";
 import Home from "../../HomeArea/Home/Home";
+import ProductDetails from "../../ProductsArea/ProductDetails/ProductDetails";
 import ProductList from "../../ProductsArea/ProductList/ProductList";
 import Page404 from "../Page404/Page404";
 import "./Routing.css";
-import ProductDetails from "../../ProductsArea/ProductDetails/ProductDetails";
+import Spinner from "../../SharedArea/Spinner/Spinner";
 
 function Routing(): JSX.Element {
+
+    function delay() {
+        return new Promise<void>(resolve => {
+            setTimeout(() => {
+                resolve();
+            }, 3000);
+        });
+    }
+
+    const LazyAbout = lazy(async () => {
+        await delay();
+        return import("../../AboutArea/About/About")
+    });
+
     return (
         <div className="Routing">
             <Routes>
@@ -17,7 +32,15 @@ function Routing(): JSX.Element {
 
                 <Route path="/products/details/:id" element={<ProductDetails />} />
 
-                <Route path="/about" element={<About />} />
+                {/* Eager Loading */}
+                {/* <Route path="/about" element={<About />} /> */}
+
+                {/* Lazy Loading: */}
+                <Route path="/about" element={
+                    <Suspense fallback={<Spinner />}>
+                        <LazyAbout />
+                    </Suspense>
+                } />
 
                 {/* <Route path="/" element={<Home />} /> */}
                 <Route path="/" element={<Navigate to="/home" />} />
