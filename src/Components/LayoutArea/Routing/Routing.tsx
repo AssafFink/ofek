@@ -6,6 +6,8 @@ import ProductList from "../../ProductsArea/ProductList/ProductList";
 import Page404 from "../Page404/Page404";
 import "./Routing.css";
 import Spinner from "../../SharedArea/Spinner/Spinner";
+import AddProduct from "../../ProductsArea/AddProduct/AddProduct";
+import EditProduct from "../../ProductsArea/EditProduct/EditProduct";
 
 function Routing(): JSX.Element {
 
@@ -26,14 +28,16 @@ function Routing(): JSX.Element {
         <div className="Routing">
             <Routes>
 
+                {/* Eager Loading */}
                 <Route path="/home" element={<Home />} />
 
                 <Route path="/products" element={<ProductList />} />
 
                 <Route path="/products/details/:id" element={<ProductDetails />} />
 
-                {/* Eager Loading */}
-                {/* <Route path="/about" element={<About />} /> */}
+                <Route path="/products/new" element={<AddProduct />} />
+
+                <Route path="/products/edit/:id" element={<EditProduct />} />
 
                 {/* Lazy Loading: */}
                 <Route path="/about" element={
