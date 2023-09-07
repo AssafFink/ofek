@@ -8,6 +8,10 @@ import "./Routing.css";
 import Spinner from "../../SharedArea/Spinner/Spinner";
 import AddProduct from "../../ProductsArea/AddProduct/AddProduct";
 import EditProduct from "../../ProductsArea/EditProduct/EditProduct";
+import About from "../../AboutArea/About/About";
+import Register from "../../AuthArea/Register/Register";
+import Login from "../../AuthArea/Login/Login";
+import Top3 from "../../ProductsArea/Top3/Top3";
 
 function Routing(): JSX.Element {
 
@@ -20,7 +24,7 @@ function Routing(): JSX.Element {
     }
 
     const LazyAbout = lazy(async () => {
-        await delay();
+        await delay(); // Demo for slow component.
         return import("../../AboutArea/About/About")
     });
 
@@ -28,10 +32,16 @@ function Routing(): JSX.Element {
         <div className="Routing">
             <Routes>
 
+                <Route path="/register" element={<Register />} />
+                
+                <Route path="/login" element={<Login />} />
+
                 {/* Eager Loading */}
                 <Route path="/home" element={<Home />} />
 
                 <Route path="/products" element={<ProductList />} />
+
+                <Route path="/products/top3" element={<Top3 />} />
 
                 <Route path="/products/details/:id" element={<ProductDetails />} />
 
