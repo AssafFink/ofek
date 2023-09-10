@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Tune from "../Tune/Tune";
 import useTitle from "../../../Utils/UseTitle";
 import Greeting from "../../SharedArea/Greeting/Greeting";
+import LinkedIn from "../LinkedIn/LinkedIn";
 
 function About(): JSX.Element {
 
@@ -75,6 +76,7 @@ function About(): JSX.Element {
     return (
         <div className="About">
 
+
             <Greeting hour={new Date().getHours()} />
 
             <WhoAreWe />
@@ -99,6 +101,7 @@ function About(): JSX.Element {
             <Tune />
             <hr />
 
+            <LinkedIn />
 
 
         </div>

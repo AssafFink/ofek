@@ -12,6 +12,7 @@ import About from "../../AboutArea/About/About";
 import Register from "../../AuthArea/Register/Register";
 import Login from "../../AuthArea/Login/Login";
 import Top3 from "../../ProductsArea/Top3/Top3";
+import ContactUs from "../../AboutArea/ContactUs/ContactUs";
 
 function Routing(): JSX.Element {
 
@@ -55,6 +56,8 @@ function Routing(): JSX.Element {
                         <LazyAbout />
                     </Suspense>
                 } />
+
+                <Route path="/contact-us" element={<ContactUs />} />
 
                 {/* <Route path="/" element={<Home />} /> */}
                 <Route path="/" element={<Navigate to="/home" />} />

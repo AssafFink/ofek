@@ -6,6 +6,7 @@ import { appStore } from './Redux/AppState';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import interceptors from './Utils/Interceptors';
+import { ThemeContext, appTheme } from './Utils/Context';
 
 // Create interceptors once:
 interceptors.create();
@@ -16,7 +17,9 @@ const root = ReactDOM.createRoot(
 root.render(
     <BrowserRouter>
         <Provider store={appStore}>
-            <Layout />
+            <ThemeContext.Provider value={appTheme}>
+                <Layout />
+            </ThemeContext.Provider>
         </Provider>
     </BrowserRouter>
 );

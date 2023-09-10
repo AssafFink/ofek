@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"; // npm i redux
 import ProductModel from "../Models/ProductModel";
 
 // Products State is a ProductModel[]
